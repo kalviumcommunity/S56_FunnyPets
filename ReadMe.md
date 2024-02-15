@@ -18,4 +18,4 @@ Like Button: Include a like button for users to express their enjoyment of a vid
 
 Responsive Design: Build a user-friendly interface that works well on different devices.
 
-By focusing on these features, the "Funny Pets Hub" aims to create a fun and accessible platform for pet lovers to enjoy and share amusing pet moments.
+By focusing on these features, the "Funny Pets" aims to create a fun and accessible platform for pet lovers to enjoy and share amusing pet moments.
