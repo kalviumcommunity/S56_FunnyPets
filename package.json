@@ -2,10 +2,14 @@
   "name": "s56_funnypets",
   "version": "1.0.0",
   "description": "The \"Funny Pets\" project is a simple and entertaining platform that brings together a collection of funny pet videos to spread joy and laughter.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Your Name or Organization",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
