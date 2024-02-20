@@ -20,3 +20,7 @@ Responsive Design: Build a user-friendly interface that works well on different 
 
 By focusing on these features, the "Funny Pets" aims to create a fun and accessible platform for pet lovers to enjoy and share amusing pet moments.
 
+
+# Deployed Link: 
+https://funnypets-asap.onrender.com/ping
+
