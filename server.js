@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const connection = require('./config');
+const connection = require('./config/db');
+const route = require('./route');
 require("dotenv").config()
 const app = express();
 const port = 3000; 
@@ -8,7 +9,7 @@ const port = 3000;
 app.get('/ping', (req, res) => {
   res.status(200).send('Pong!');
 });
-
+app.use(route)
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
