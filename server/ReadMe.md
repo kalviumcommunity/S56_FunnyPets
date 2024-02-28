@@ -20,3 +20,6 @@ By focusing on these features, the "Funny Pets" aims to create a fun and accessi
 # Deployed Link: 
 https://funnypets-asap.onrender.com/ping
 
+# Deployed Link: 
+https://s56-funnypets.netlify.app/
+
