@@ -6,6 +6,12 @@ require("dotenv").config()
 const app = express();
 const port = 3000; 
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'o_O',
+    database: isConnected() ? 'connected' : 'disconnected'
+  })
+});
 app.get('/ping', (req, res) => {
   res.status(200).send('Pong!');
 });
@@ -31,10 +37,4 @@ const disconnectFromDB = async () => {
   } catch (err) {
     console.error('❌ error disconnecting from mongoDB:', err.message);
   }
-};
-
-module.exports = {
-  connectToDB,
-  disconnectFromDB,
-  mongooseConnection: mongoose.connection,
 };
