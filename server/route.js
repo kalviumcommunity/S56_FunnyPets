@@ -1,7 +1,13 @@
 const express = require ('express')
 const router = express.Router()
+const{FunnyPet} = require("./models/users");
+
 router.get('/get',(req,res)=>{
     res.send("It is a get request")
+})
+router.get('/getusers',async(req, res) => {
+    let answer = await FunnyPet.find();
+    res.send(answer)
 })
 router.put('/put',(req,res)=>{
     res.send("It is a put request")
@@ -13,4 +19,4 @@ router.delete('/delete',(req,res)=>{
     res.send("It is a delete request")
 })
 
-module.exports = router
+module.exports = {router}
