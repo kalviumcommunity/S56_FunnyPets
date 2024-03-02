@@ -23,9 +23,9 @@ app.get('/ping', (req, res) => {
 
 
 app.use(router)
-app.listen(process.env.PUBLIC_PORT, () => {
+app.listen(process.env.PUBLIC_PORT || 3000, () => {
   connected()
-  console.log(`Server is running on http://localhost:${process.env.PUBLIC_PORT}`);
+  console.log(`Server is running..!!!`);
 });
 
 
