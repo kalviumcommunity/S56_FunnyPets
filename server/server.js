@@ -5,8 +5,15 @@ const {router} = require('./route');
 const { connected } = require('./config/db');
 require("dotenv").config()
 const app = express();
+const cors = require('cors');
+app.use(cors())
+const{FunnyPet} = require("./models/users");
 
 
+app.get('/getusers',async(req, res) => {
+  let answer = await FunnyPet.find({});
+  res.send(answer)
+})
 app.get('/', async (req, res) => {
   try {
       res.send('Connected to mongoDB');
