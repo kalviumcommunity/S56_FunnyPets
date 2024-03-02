@@ -1,6 +1,19 @@
-const config = {
-    mongoURI: 'mongodb+srv://janhavihivarekar:janhavih@cluster0.7ylqwrh.mongodb.net/FunnyPets',
-  };
-  
-  module.exports = config;
-  
+let mongoose = require("mongoose")
+require("dotenv").config()
+
+let connected = async() => {
+    try{
+        await mongoose.connect(process.env.URI);
+        console.log("Database connected successfully")
+    }catch(error){
+        console.log(error)
+    }
+}
+const isConnected = () => {
+    return mongoose.connection.readyState === 1;
+}
+
+module.exports = {
+    isConnected,
+    connected
+}
