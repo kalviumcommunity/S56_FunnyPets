@@ -5,8 +5,15 @@ const {router} = require('./route');
 const { connected } = require('./config/db');
 require("dotenv").config()
 const app = express();
+const cors = require('cors');
+app.use(cors())
+const{FunnyPet} = require("./models/users");
 
 
+app.get('/getusers',async(req, res) => {
+  let answer = await FunnyPet.find({});
+  res.send(answer)
+})
 app.get('/', async (req, res) => {
   try {
       res.send('Connected to mongoDB');
@@ -23,9 +30,9 @@ app.get('/ping', (req, res) => {
 
 
 app.use(router)
-app.listen(process.env.PUBLIC_PORT, () => {
+app.listen(process.env.PUBLIC_PORT || 3000, () => {
   connected()
-  console.log(`Server is running on http://localhost:${process.env.PUBLIC_PORT}`);
+  console.log(`Server is running..!!!`);
 });
 
 

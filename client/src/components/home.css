@@ -49,36 +49,3 @@
     font-weight: 100;
     font-family:'Times New Roman', Times, serif ;
 }
-.cards{
-    background-color: rgb(40, 69, 78);
-    display:grid;
-    grid-template-columns: auto auto auto;
-    padding-top:3vw;
-}
-.card img{
-    width:30vw;
-  
-}
-.card{
-    width: 30vw;
-    margin-left:1.5vw;
-    margin-top:2vw;
-}
-.card h1{
-    font-size:2vw;
-    font-weight:500;
-    color:rgba(255, 255, 255, 0.634);
-    margin-top:1vw;
-}
-.card h4{
-    font-size:1.5vw;
-    font-weight:50;
-    color:rgba(255, 255, 255, 0.634);
-    margin-top:0.5vw;
-}
-.card p{
-    font-size:1.25vw;
-    color:rgba(255, 255, 255, 0.634);
-    margin-top:0.5vw;
-}
-
