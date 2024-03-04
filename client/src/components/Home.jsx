@@ -16,8 +16,6 @@ function Home() {
       })
   } , [])
 
-
-  // console.log(data)
   return (
     <div>
       
