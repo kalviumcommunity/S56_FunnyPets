@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: rgb(0, 34, 45);
+    padding-bottom:3vw;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card img{
+    margin: 1vw 1vw;
+    width:30vw;
+  
+}
+.card{
+    width: 30vw;
+    margin-left:1.5vw;
+    margin-top:2vw;
+}
+.underlined{
+    text-decoration:underline 1.5px solid rgba(255, 255, 255, 0.634);
+}
+.card h1{
+    font-size:2vw;
+    font-weight:500;
+    color:rgba(0, 255, 187, 0.634);
+    margin-top:1vw;
+    text-align: center;
+}
+.card h4{
+    font-size:1.5vw;
+    font-weight:50;
+    color:rgba(255, 255, 255, 0.634);
+    margin-top:0.5vw;
+    text-align: center;
+}
+.card p{
+    font-size:1.25vw;
+    color:rgba(255, 255, 255, 0.634);
+    margin-top:0.5vw;
+}
+.card h6{
+    color:rgb(72, 255, 0);
+    font-size:1.20vw;
+    margin-top:0.5vw;
+    margin-left:3vw;
+}
+
+
