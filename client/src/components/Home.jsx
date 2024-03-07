@@ -12,8 +12,8 @@ function Home() {
   useEffect(()=>{
     axios.get('https://s56-funnypets-asap.onrender.com/getusers')
     .then(result => {
-      setUsers(result.data)
-      setData(res.data)
+      // setUsers(result.data)
+      setData(result.data)
     })
     .catch(err => console.log(err))
   },[])
