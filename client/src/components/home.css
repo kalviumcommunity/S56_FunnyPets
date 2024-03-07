@@ -49,3 +49,34 @@
     font-weight: 100;
     font-family:'Times New Roman', Times, serif ;
 }
+.form{
+    position: relative;
+    top:-15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form p{
+    font-size:1.25vw;
+    color:rgb(255, 255, 255);
+    text-shadow: 2px 2px 2px black;
+}
+.form button{
+    position: absolute;
+    top: 2.5vw;
+    width:9vw;
+    height:3vw;
+    font-size:1.5vw;
+    border-radius: 0.75vw;
+    border: 0.20vw solid black;
+    background-color: rgba(255, 255, 255, 0.388);
+    cursor: pointer;
+}
+.form button:hover{
+    border: 0.20vw solid rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.579);
+    color:white;
+}
+.form button:active{
+    background-color: rgba(111, 111, 111, 0.64);
+}

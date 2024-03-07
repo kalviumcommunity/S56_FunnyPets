@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './card.css'
 
 function Card(props) {
     console.log(props.props)
-
   return (
     
     <div>
