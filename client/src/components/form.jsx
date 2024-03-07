@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './form.css';
+import axios from 'axios';
 
 
 function Form() {
@@ -13,13 +14,14 @@ function Form() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://s56-funnypets-asap.onrender.com/addform",{ Title,
-    VideoSource,
-    Category,
-    Description,
-    URL,
-    Image,
-    DateUploaded})
+    axios.post("https://s56-funnypets-asap.onrender.com/addform",{ Title:Title,
+    VideoSource: VideoSource,
+    Category:Category,
+    Description: Description,
+    URL:URL,
+    Image:Image,
+    DateUploaded:DateUploaded
+  })
     .then(result => {
       console.log(result)
     })
@@ -53,7 +55,7 @@ function Form() {
         <label htmlFor="DateUploaded">Date of Uploadation:</label>
         <input type="date" id="DateUploaded" name="DateUploaded" value={DateUploaded} onChange={(e) => setDateUploaded(e.target.value)} required />
 
-        <label htmlFor="VideoSource">VideoSource of Video:</label>
+        <label htmlFor="VideoSource">Source of Video:</label>
         <input type="text" id="VideoSource" name="VideoSource" value={VideoSource} onChange={(e) => setVideoSource(e.target.value)} required />
 
         <button type="submit">Submit</button>

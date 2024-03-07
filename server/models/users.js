@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const FunnyPetsSchema = mongoose.Schema({
+const funnyPetsSchema = new mongoose.Schema({
 Title:String,
 VideoSource: String,
 Category:String,
@@ -8,10 +8,8 @@ Description: String,
 URL:String,
 Image:String,
 DateUploaded:String
-},versionKey=false);
+});
 
-const FunnyPet = mongoose.model("funnypet",FunnyPetsSchema);
+let FunnyPet = mongoose.model("funnypet",funnyPetsSchema)
 
-module.exports = {
-    FunnyPet
-}
+module.exports = {FunnyPet}

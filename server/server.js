@@ -7,10 +7,10 @@ const app = express();
 const cors = require('cors');
 app.use(cors())
 app.use(router)
-const FunnyPet = require("./models/users.js");
+const{ FunnyPet }= require("./models/users.js");
 
 app.get('/getusers',async(req, res) => {
-  let answer = await FunnyPet.find();
+  let answer = await FunnyPet.find({});
   res.send(answer)
 })
 app.get('/', async (req, res) => {

@@ -1,6 +1,8 @@
 const express = require ('express')
 const router = express.Router()
 router.use(express.json());
+const{ FunnyPet }= require("./models/users.js");
+
 
 router.get('/get',(req,res)=>{
     res.send("It is a get request")
@@ -8,10 +10,12 @@ router.get('/get',(req,res)=>{
 router.post("/addform", (req,res)=> {
     try {
       console.log(req.body)
-      const user = FunnyPet.create(req.body);
-      res.send(user);
+      FunnyPet.create(req.body).then((el)=>{
+        res.send(el)
+      });
+      // res.send(user);
     } catch (error) {
-      res.status(500).send(error);
+      res.send(error);
     }
   })
   

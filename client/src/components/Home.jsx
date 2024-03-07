@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 
 function Home() {
-
+  const [data,setData] = useState([])
   const [users,setUsers] = useState([])
   useEffect(()=>{
     axios.get('https://s56-funnypets-asap.onrender.com/getusers')
@@ -32,7 +32,7 @@ function Home() {
         </div>
         <div className="form">
           <p><i>(This button leads you to a form to insert,delete or update any videos if required.)</i></p>
-          <Link to ={"/form"}><button>Form</button></Link>
+          <Link to ="/form"><button>Form</button></Link>
         </div>
         <div>
           {data.map((ele , i)=>{
