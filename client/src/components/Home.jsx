@@ -8,17 +8,13 @@ import {Link} from 'react-router-dom';
 
 function Home() {
 
-  const [data , setData] = useState([])
   const [users,setUsers] = useState([])
   useEffect(()=>{
-    axios.get("https://s56-funnypets-asap.onrender.com/getusers")
-      .then((res)=>{
-        setData(res.data)
-      })
-  } , [])
-  useEffect(()=>{
     axios.get('https://s56-funnypets-asap.onrender.com/getusers')
-    .then(result => setUsers(result.data))
+    .then(result => {
+      setUsers(result.data)
+      setData(res.data)
+    })
     .catch(err => console.log(err))
   },[])
 
