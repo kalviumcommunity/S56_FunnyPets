@@ -1,12 +1,21 @@
 const express = require ('express')
 const router = express.Router()
+router.use(express.json());
 
 router.get('/get',(req,res)=>{
     res.send("It is a get request")
 })
-router.put('/put',(req,res)=>{
-    res.send("It is a put request")
-})
+router.post("/addform", async(req,res)=> {
+    try {
+      console.log(req.body)
+      const user = FunnyPet.create(req.body);
+      await user.save();
+      res.send(user);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  })
+  
 router.patch('/patch',(req,res)=>{
     res.send("It is a patch request")
 })

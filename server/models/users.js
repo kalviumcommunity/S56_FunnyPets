@@ -1,14 +1,14 @@
 const mongoose = require("mongoose")
 
 const FunnyPetsSchema = mongoose.Schema({
-title:String,
-videosource: String,
-category:String,
-description: String,
-url:String,
-image:String,
-dateuploaded:String
-});
+Title:String,
+VideoSource: String,
+Category:String,
+Description: String,
+URL:String,
+Image:String,
+DateUploaded:String
+},versionKey=false);
 
 const FunnyPet = mongoose.model("funnypet",FunnyPetsSchema);
 
