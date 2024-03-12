@@ -47,6 +47,8 @@ function Update() {
       <div className="navbar">
         <div id="logo"></div>
         <div id="searchbar"><input type="text" placeholder='Search for videos...' /></div>
+        <Link to='/login'><div className="loginout"id='login'><button>Login</button></div></Link>
+        <div className="loginout"id='logout'><button>Logout</button></div>
       </div>
       <form >
         <h1>Update your video!</h1>

@@ -24,6 +24,34 @@
     padding-left:1vw;
     font-size:1.2vw;
 }
+
+
+
+
+.loginout button{
+    margin:1vw;
+    width:8vw;
+    height:3vw;
+    font-size:1.25vw;
+    border-radius: 0.75vw;
+    border: 0.20vw solid black;
+    background-color: rgba(255, 255, 255, 0.388);
+    cursor: pointer;
+}
+.loginout button:hover{
+    border: 0.20vw solid rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.579);
+    color:white;
+}
+.loginout button:active{
+    background-color: rgba(111, 111, 111, 0.64);
+}
+#login{
+    margin-right:-9vw;
+}
+#logout{
+    margin-right:2vw;
+}
 .aboutus{
     position:absolute;
    text-align: center;
