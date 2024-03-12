@@ -13,17 +13,33 @@ router.post("/addform", (req,res)=> {
       FunnyPet.create(req.body).then((el)=>{
         res.send(el)
       });
-      // res.send(user);
     } catch (error) {
       res.send(error);
     }
   })
   
-router.patch('/patch',(req,res)=>{
-    res.send("It is a patch request")
-})
-router.delete('/delete',(req,res)=>{
-    res.send("It is a delete request")
+  router.put("/update/:id",async(req,res)=>{
+    const {id} = req.params;
+    console.log(req.body)
+
+    try{
+      FunnyPet.findByIdAndUpdate({_id:id},req.body)
+      .then((res)=>{
+        console.log("Video updated successfully",res)
+      })
+      .catch((err)=>{
+        console.error(err)
+      })}
+      catch(err){
+        console.error(err)
+      }
+  })
+  
+router.delete('/deleteuser/:id',(req,res)=>{
+  const id = req.params.id;
+  FunnyPet.findByIdAndDelete({_id:id})
+  .then(res => res.json(res))
+  .catch(err => res.json(err))
 })
 
 module.exports = {router}

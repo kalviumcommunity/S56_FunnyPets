@@ -22,7 +22,6 @@ app.get('/', async (req, res) => {
   }
 });
 
-
 app.get('/ping', (req, res) => {
   res.status(200).send('Pong!');
 });

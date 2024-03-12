@@ -52,18 +52,17 @@
 .form{
     position: relative;
     top:-15vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
 }
 .form p{
     font-size:1.25vw;
     color:rgb(255, 255, 255);
     text-shadow: 2px 2px 2px black;
+    text-align: center;
 }
 .form button{
-    position: absolute;
-    top: 2.5vw;
+    margin-top: 2vw;
+    margin-left: 45vw;
     width:9vw;
     height:3vw;
     font-size:1.5vw;

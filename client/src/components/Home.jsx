@@ -9,17 +9,19 @@ import {Link} from 'react-router-dom';
 function Home() {
   const [data,setData] = useState([])
   const [users,setUsers] = useState([])
-  useEffect(()=>{
-    axios.get('https://s56-funnypets-asap.onrender.com/getusers')
+useEffect(()=>{
+  fetchData()
+},[])
+ const fetchData = () => {
+    axios.get('http://localhost:3000/getusers')
     .then(result => {
-      // setUsers(result.data)
       setData(result.data)
     })
     .catch(err => console.log(err))
-  },[])
+  }
 
   return (
-    <div>
+   <>
       
         <div className="navbar">
             <div id="logo"></div>
@@ -32,14 +34,17 @@ function Home() {
         </div>
         <div className="form">
           <p><i>(This button leads you to a form to insert,delete or update any videos if required.)</i></p>
-          <Link to ="/form"><button>Form</button></Link>
-        </div>
+    
+          <Link to ="/form"><button>Insert</button></Link>
+          </div>
         <div>
           {data.map((ele , i)=>{
-            return <Card key={i} props={ele}/>
+            return<Card key={i} {...ele} fetchData={fetchData}/>
+  
           })}
+          
         </div>
-    </div>
+        </>
   )
 }
 
