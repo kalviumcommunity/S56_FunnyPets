@@ -49,5 +49,27 @@ body{
     margin-top:0.5vw;
     margin-left:3vw;
 }
-
+.buttons{
+    width:30vw;
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button{
+    margin-top: 2vw;
+    width:9vw;
+    height:3vw;
+    font-size:1.5vw;
+    border-radius: 0.75vw;
+    border: 0.20vw solid black;
+    background-color: rgba(255, 255, 255, 0.388);
+    cursor: pointer;
+}
+.buttons button:hover{
+    border: 0.20vw solid rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.579);
+    color:white;
+}
+.buttons button:active{
+    background-color: rgba(111, 111, 111, 0.64);
+}
 

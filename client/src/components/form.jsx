@@ -58,7 +58,7 @@ function Form() {
         <label htmlFor="VideoSource">Source of Video:</label>
         <input type="text" id="VideoSource" name="VideoSource" value={VideoSource} onChange={(e) => setVideoSource(e.target.value)} required />
 
-        <button type="submit">Submit</button>
+        <button type="submit">Insert</button>
       </form>
     </div>
   );
