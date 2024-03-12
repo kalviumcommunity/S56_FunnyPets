@@ -1,13 +1,17 @@
 const express = require ('express')
 const router = express.Router()
 router.use(express.json());
-const{ FunnyPet }= require("./models/users.js");
+const{ FunnyPet, validatePets }= require("./models/users.js");
 
 
 router.get('/get',(req,res)=>{
     res.send("It is a get request")
 })
 router.post("/addform", (req,res)=> {
+  const validation = validatePets(req.body)
+    if (validation.error){
+      return res.status(400).json({error:validation.error.details[0].message})
+    }
     try {
       console.log(req.body)
       FunnyPet.create(req.body).then((el)=>{
