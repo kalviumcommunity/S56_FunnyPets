@@ -1,5 +1,6 @@
 const express = require ('express')
 const router = express.Router()
+const jwt = require('jsonwebtoken');
 router.use(express.json());
 const{ FunnyPet, validatePets }= require("./models/users.js");
 
@@ -37,6 +38,12 @@ router.post("/addform", (req,res)=> {
       catch(err){
         console.error(err)
       }
+  })
+  router.post("/auth",(req,res)=>{
+    const username = req.body.username
+    const user = {name: username}
+    const accesstoken = jwt.sign(user,process.env.Access_Token)
+    res.json({accessToken: accesstoken})
   })
   
 router.delete('/deleteuser/:id',(req,res)=>{
