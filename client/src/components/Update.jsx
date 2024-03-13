@@ -13,7 +13,8 @@ function Update() {
     Description: "",
     URL: "",
     Image: "",
-    DateUploaded: ""
+    DateUploaded: "",
+    CreatedBy: localStorage.getItem("users")
   });
   
   const { id } = useParams();
@@ -21,7 +22,7 @@ function Update() {
   const handleUpdate = (e) => {
 
     try {
-      axios.put(`http://localhost:3000/update/${id}`, petData)
+      axios.put(`https://s56-funnypets-asap.onrender.com/update/${id}`, petData)
         .then((result) => {
           console.log(result);
         })

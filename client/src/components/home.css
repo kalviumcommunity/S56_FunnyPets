@@ -24,10 +24,6 @@
     padding-left:1vw;
     font-size:1.2vw;
 }
-
-
-
-
 .loginout button{
     margin:1vw;
     width:8vw;
@@ -106,4 +102,10 @@
 }
 .form button:active{
     background-color: rgba(111, 111, 111, 0.64);
+}
+.dropdown p{
+    color:white;
+    text-align: center;
+    font-size:2vw;
+    margin-top:-3vw;
 }

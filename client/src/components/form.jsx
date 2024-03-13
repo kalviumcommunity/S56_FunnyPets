@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './form.css';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 function Form() {
@@ -11,6 +12,7 @@ function Form() {
   const [Image, setImage] = useState('');
   const [DateUploaded, setDateUploaded] = useState('');
   const [VideoSource, setVideoSource] = useState('');
+  let CreatedBy = localStorage.getItem("users")
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +22,8 @@ function Form() {
     Description: Description,
     URL:URL,
     Image:Image,
-    DateUploaded:DateUploaded
+    DateUploaded:DateUploaded,
+    CreatedBy:CreatedBy
   })
     .then(result => {
       console.log(result)
