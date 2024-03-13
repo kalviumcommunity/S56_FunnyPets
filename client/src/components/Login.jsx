@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.css'
+import axios from 'axios';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -7,6 +8,7 @@ function Login() {
 
   const handlelogout = () => {
     document.cookie = `username=;expires= + new Date(2000, 0, 1).toUTCString()`;
+    document.cookie = `accessToken=;expires= + new Date(2000, 0, 1).toUTCString()`;
   }
 
   const handleUsernameChange = (e) => {
@@ -25,6 +27,13 @@ function Login() {
     console.log('Login submitted:', { username, password });
     document.cookie =
       `username=${username};expires= + new Date(2030, 0, 1).toUTCString()`;
+
+    axios.post("http://localhost:3000/auth",{username})
+      .then((response)=>{
+          console.log(response.data.accessToken)
+          document.cookie = `accessToken = ${response.data.accessToken};expires= + new Date(2030, 0, 1). toUTCString()`; 
+      })
+      .catch((err) => console.log(err));
     };
   return (
     <>
@@ -58,6 +67,5 @@ function Login() {
     </div>
     </>
   );
-
-  }
+}
 export default Login;
