@@ -22,9 +22,15 @@ Image:{type: String,
 },
 DateUploaded:{type: String,
     required: true,
-}
-});
+},
+CreatedBy:{type: String
 
+}});
+
+const UserSchema = new mongoose.Schema({
+    CreatedBy:{type: String
+    }
+})
 const validatePets = (pets) => {
     const schema = joi.object({
         Title: joi.string().required(),
@@ -34,6 +40,7 @@ const validatePets = (pets) => {
         URL: joi.string().required(),
         Image: joi.string().required(),
         DateUploaded: joi.string().required(),
+        CreatedBy: joi.string().required(), 
     });
   
     return schema.validate(pets);
@@ -42,5 +49,6 @@ const validatePets = (pets) => {
   
 
 let FunnyPet = mongoose.model("funnypet",funnyPetsSchema)
+let User = mongoose.model("usernames",UserSchema)
 
-module.exports = {FunnyPet, validatePets}
+module.exports = {FunnyPet, validatePets,User}

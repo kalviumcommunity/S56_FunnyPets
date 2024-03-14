@@ -8,18 +8,27 @@ import { Link } from "react-router-dom";
 function Home() {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
+  const [currusers, setCurrUsers] = useState("Creators");
   useEffect(() => {
     fetchData();
-  }, []);
+    axios.get("https://s56-funnypets-asap.onrender.com/user")
+     .then((res)=>{
+     setUsers(res.data)
+      console.log(res.data)
+     })
+     .catch((err)=>console.log(err));
+  }, [currusers]);
   const fetchData = () => {
     axios
-      .get("http://localhost:3000/getusers")
+      .get("https://s56-funnypets-asap.onrender.com/getusers")
       .then((result) => {
-        setData(result.data);
+        let filteredData = currusers == 'Creators' ? result.data : result.data.filter((el)=>{
+          return el.CreatedBy === currusers
+        })
+        setData(filteredData);
       })
       .catch((err) => console.log(err));
-  };
-
+  }
   return (
     <>
       <div className="navbar">
@@ -62,9 +71,20 @@ function Home() {
         </Link>
       </div>
       <div>
+        <div className="dropdown">
+          <p>Search By Creators:</p>
+          <select name="dropit" onChange={(e)=>{setCurrUsers(e.target.value)}}>
+          <option value="Creators">Creators</option>
+          {users.map((ele) => {
+          return <option value={ele.CreatedBy}>{ele.CreatedBy}</option>
+        })}
+          </select>
+        </div>
+        <div className="cards">
         {data.map((ele, i) => {
           return <Card key={i} {...ele} fetchData={fetchData} />;
         })}
+        </div>
       </div>
     </>
   );

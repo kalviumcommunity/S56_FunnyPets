@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './login.css'
 import axios from 'axios';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [users, setUsers] = useState('');
 
   const handlelogout = () => {
     document.cookie = `username=;expires= + new Date(2000, 0, 1).toUTCString()`;
@@ -26,15 +27,34 @@ function Login() {
     }
     console.log('Login submitted:', { username, password });
     document.cookie =
-      `username=${username};expires= + new Date(2030, 0, 1).toUTCString()`;
+      `username=${username};expires=` + new Date(2030, 0, 1).toUTCString();
 
-    axios.post("http://localhost:3000/auth",{username})
-      .then((response)=>{
-          console.log(response.data.accessToken)
-          document.cookie = `accessToken = ${response.data.accessToken};expires= + new Date(2030, 0, 1). toUTCString()`; 
+      let filteredData = users.filter((el)=>{
+        return el.CreatedBy === username
       })
-      .catch((err) => console.log(err));
+      if (filteredData.length > 0){
+          localStorage.setItem("users", username)
+      }
+      else{
+        axios.post("https://s56-funnypets-asap.onrender.com/auth",{username})
+          .then((response)=>{
+              console.log(response.data.accessToken)
+              document.cookie = `accessToken = ${response.data.accessToken};expires=` + new Date(2030, 0, 1). toUTCString(); 
+          })
+          .catch((err) => console.log(err));   
+          localStorage.setItem("users", username) 
+      }
+
     };
+    useEffect(()=>{
+     axios.get("https://s56-funnypets-asap.onrender.com/user")
+      .then((res)=>{
+        console.log(res.data)
+        setUsers(res.data)
+      })
+      .catch((err)=>console.log(err));
+    },[])
+
   return (
     <>
     <div>
