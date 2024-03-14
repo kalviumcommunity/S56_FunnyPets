@@ -80,9 +80,11 @@ function Home() {
         })}
           </select>
         </div>
+        <div className="cards">
         {data.map((ele, i) => {
           return <Card key={i} {...ele} fetchData={fetchData} />;
         })}
+        </div>
       </div>
     </>
   );
